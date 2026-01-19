@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  # MySQL Database Service
+  db:
+    image: mysql:8.0
+    container_name: mysql-db
+    restart: always
+    environment:
+      MYSQL_DATABASE: payroll_db
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - "3307:3306" # Mapped to 3307 on your host to avoid conflict with local MySQL
+    volumes:
+      - db_data:/var/lib/mysql
+
+  # Spring Boot Application Service
+  app:
+    build: .
+    container_name: spring-app
+    ports:
+      - "8081:8081" # Map host port 8081 to container port 8081
+    depends_on:
+      - db
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:mysql://db:3306/payroll_db?allowPublicKeyRetrieval=true&useSSL=false
+      - SPRING_DATASOURCE_USERNAME=root
+      - SPRING_DATASOURCE_PASSWORD=root
+
+volumes:
+  db_data:

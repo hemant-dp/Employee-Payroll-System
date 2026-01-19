@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: employee-app-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: employee-payroll
+  template:
+    metadata:
+      labels:
+        app: employee-payroll
+    spec:
+      containers:
+        - name: payroll-container
+          image: employee-payroll-app:latest
+          imagePullPolicy: Never # Critical for local images
+          ports:
+            - containerPort: 8081

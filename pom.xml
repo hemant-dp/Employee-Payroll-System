@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.example</groupId>
-	<artifactId>Employee-Payroll-System1</artifactId>
+	<artifactId>yml</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>Employee-Payroll-System1</name>
 	<description>Employee Payroll Management System with Spring Boot and MySQL.</description>
