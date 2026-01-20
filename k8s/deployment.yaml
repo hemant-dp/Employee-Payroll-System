@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: payroll-container
-          image: employee-payroll-app:latest
-          imagePullPolicy: Never # Critical for local images
+          image: hrajpoot121/employee-backend:latest
+          imagePullPolicy: Always # Critical for local images
           ports:
             - containerPort: 8081
