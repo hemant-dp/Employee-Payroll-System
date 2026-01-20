@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: employee-frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: frontend
+  template:
+    metadata:
+      labels:
+        app: frontend
+    spec:
+      containers:
+        - name: angular-container
+          # CHANGE 1: Image name ko Docker Hub username ke saath update karein
+          image: hrajpoot121/employee-frontend:latest
+          # CHANGE 2: Policy ko 'Always' karein taaki cloud se nayi image pull ho sake
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80
