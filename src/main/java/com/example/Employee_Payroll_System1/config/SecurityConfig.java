@@ -13,7 +13,8 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
-                .csrf(csrf -> csrf.disable())
+                .cors(cors -> cors.disable()) // Development ke liye CORS disable karein ya configure karein
+                .csrf(csrf -> csrf.disable()) // POST requests ke liye ise disable karna zaroori hai
                 .authorizeHttpRequests(auth -> auth
                         .anyRequest().permitAll()
                 );
