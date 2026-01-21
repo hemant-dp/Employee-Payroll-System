@@ -20,7 +20,7 @@ jobs:
       # Frontend build - Path './frontend' hai kyunki GitHub par folder wahi hai
       - name: Build & Push Frontend
         run: |
-          docker build -t hrajpoot121/employee-frontend:latest ./frontend
+          docker build -t hrajpoot121/employee-frontend:latest .
           docker push hrajpoot121/employee-frontend:latest
 
       # Kubernetes Deployment
