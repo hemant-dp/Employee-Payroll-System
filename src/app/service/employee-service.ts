@@ -7,6 +7,7 @@ import { Employee } from '../model/employee';
   providedIn: 'root',
 })
 export class EmployeeService {
+
   private baseUrl = "http://127.0.0.1:64677/api/v1/employees";
 
   constructor(private http: HttpClient) { }
@@ -30,4 +31,6 @@ export class EmployeeService {
   deleteEmployee(id: number): Observable<string> {
     return this.http.delete(`${this.baseUrl}/${id}`, { responseType: 'text' });
   }
+
+  
 }
