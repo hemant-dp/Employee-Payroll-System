@@ -14,9 +14,9 @@ spec:
     spec:
       containers:
         - name: angular-container
-          # CHANGE 1: Image name ko Docker Hub username ke saath update karein
+          # Docker Hub ka sahi path: hrajpoot121/employee-frontend
           image: hrajpoot121/employee-frontend:latest
-          # CHANGE 2: Policy ko 'Always' karein taaki cloud se nayi image pull ho sake
+          # Isse Kubernetes hamesha fresh image pull karega
           imagePullPolicy: Always
           ports:
-            - containerPort: 80
+            - containerPort: 80 # Nginx default port
